@@ -162,9 +162,25 @@ warnings.simplefilter(action='ignore',category=FutureWarning)
 
 
 end1 = dt.date(end.year - 1, end.month,end.day) #1 year back
-end2 = dt.date(end.year,end.month - 3, end.day) #6 months back
+end2 = dt.date(end.year,end.month - 3, end.day) #6 months back <-- Works only with numbers 1-3, 4-12 I've got error 
 start1 = dt.date(end1.year - 3, end.month, end.day)
 
+///////////////////////////////////////////////////////////////////////////////
+#Code With Error:
+end1 = dt.date(end.year - 1, end.month,end.day) #1 year back
+end2 = dt.date(end.year,end.month - 6, end.day) #6 months back
+start1 = dt.date(end1.year - 3, end.month, end.day)
+
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-382-04b20b04d755> in <module>
+      1 end1 = dt.date(end.year - 1, end.month,end.day) #1 year back
+----> 2 end2 = dt.date(end.year,end.month - 6, end.day) #6 months back
+      3 start1 = dt.date(end1.year - 3, end.month, end.day)
+
+ValueError: month must be in 1..12
+
+//////////////////////////////////////////////////////////////////////////////
 
 # In[366]:
 
