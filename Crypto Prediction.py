@@ -304,6 +304,43 @@ X3 = sm.add_constant(X3)
 
 # In[ ]:
 
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-396-0c2468c93995> in <module>
+      4 X3 = daily_returns[['ETH-USD','XRP-USD','LTC-USD']]
+      5 
+----> 6 X1 = sm.add_constant(X1)
+      7 X2 = sm.add_constant(X2)
+      8 X3 = sm.add_constant(X3)
 
+~/opt/anaconda3/lib/python3.7/site-packages/statsmodels/tools/tools.py in add_constant(data, prepend, has_constant)
+    294     if _is_using_pandas(data, None) or _is_recarray(data):
+    295         from statsmodels.tsa.tsatools import add_trend
+--> 296         return add_trend(data, trend='c', prepend=prepend, has_constant=has_constant)
+    297 
+    298     # Special case for NumPy
+
+~/opt/anaconda3/lib/python3.7/site-packages/statsmodels/tsa/tsatools.py in add_trend(x, trend, prepend, has_constant)
+     95                 except:
+     96                     return False
+---> 97             col_const = x.apply(safe_is_const, 0)
+     98         else:
+     99             ptp0 = np.ptp(np.asanyarray(x), axis=0)
+
+~/opt/anaconda3/lib/python3.7/site-packages/pandas/core/frame.py in apply(self, func, axis, broadcast, raw, reduce, result_type, args, **kwds)
+   6898             If an array is passed, it must be the same length as the data. The
+   6899             list can contain any of the other types (except list).
+-> 6900             Keys to group by on the pivot table column.  If an array is passed,
+   6901             it is being used as the same manner as column values.
+   6902         aggfunc : function, list of functions, dict, default numpy.mean
+
+~/opt/anaconda3/lib/python3.7/site-packages/pandas/core/apply.py in <module>
+      7 from pandas._config import option_context
+      8 
+----> 9 from pandas._typing import Axis, FrameOrSeriesUnion
+     10 from pandas.util._decorators import cache_readonly
+     11 
+
+ImportError: cannot import name 'FrameOrSeriesUnion' from 'pandas._typing' (/Users/lukasz/opt/anaconda3/lib/python3.7/site-packages/pandas/_typing.py)
 
 
